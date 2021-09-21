@@ -1,0 +1,1467 @@
+ADD:
+   ADD v1 FROM v2 TO v3 GIVING v4
+   ADD v1 THEN v2 UNTIL v3 GIVING m
+   ADD v1 THEN v2 UNTIL v3 TO m
+   ADD v1 THEN v2 UNTIL v3
+   ADD v1 TO v2
+   ADD-CORRESPONDING rec1 TO rec2
+
+APPEND:
+   APPEND tabla
+   APPEND area1 TO tabla2
+   APPEND INITIAL LINE TO tabla1
+   APPEND tabla SORTED BY v3
+   APPEND area1 TO tabla2 SORTED BY v3
+   APPEND LINES OF tabla1 TO tabla 2
+   APPEND LINES OF tabla1 FROM ix1 TO tabla2
+   APPEND LINES OF tabla1 FROM ix1 TO ix2 TO tabla2
+
+ASSIGN:
+   ASSIGN v1 TO <fs1> DECIMALS dec TYPE tipo
+   ASSIGN f+off(len) TO <fs> DECIMALS dec TYPE tipo
+   ASSIGN (f) TO <fs> TYPE tipo DECIMALS dec
+   ASSIGN <fs1>+off(len) TO <fs2> DECIMALS dec TYPE tipo
+   ASSIGN TABLE FIELD v1  TO <fs>
+   ASSIGN TABLE FIELD (f) TO <fs>
+   ASSIGN COMPONENT n OF STRUCTURE rec TO <fs> DECIMALS dec TYPE tipo
+   ASSIGN COMPONENT name OF STRUCTURE rec TO <fs> DECIMALS dec TYPE tipo
+   ASSIGN LOCAL COPY OF v1 TO <f>
+   ASSIGN LOCAL COPY OF MAIN TABLE FIELD (f) TO <f>
+   ASSIGN LOCAL COPY OF INITAL LINE tabla TO <f>
+
+AT:
+   AT END OF v1
+   AT NEW v1
+   AT FIRST
+   AT LAST
+   AT fg WITH fg1
+   AT LINE-SELECTION
+   AT USER-COMMAND
+   AT PFx
+   AT SELECTION-SCREEN
+     ON ps1
+     ON END OF s1
+     ON VALUE-REQUEST FOR ps1
+     ON HELP-REQUEST FOR ps1
+     ON RADIOBUTTON GROUP radi1
+     ON BLOCK blk1
+     OUTPUT
+
+AUTHORITY-CHECK:
+   AUTHORITY-CHECK OBJECT object ID name1  FIELD f1
+
+BACK:
+   BACK
+
+BREAK-POINT:
+   BREAK-POINT lit1
+
+CALL:
+   CALL FUNCTION {AutoInsertFunctionCall}
+   CALL FUNCTION fnc1
+     EXPORTING  p1 = v1
+     IMPORTING  p1 = v1
+     TABLES     p1 = tabla1
+     CHANGING   p1 = v1
+     EXCEPTIONS exc1 = retc1
+   CALL FUNCTION fnc1 STARTING NEW TASK tskname2
+     DESTINATION dest1
+     DESTINATION IN GROUP grp1
+     DESTINATION IN GROUP DEFAULT
+     PERFORMING form1 ON END OF TASK
+     EXPORTING  p1 = v1
+     TABLES     p1 = tabla1
+     EXCEPTIONS exc1 = retc2 MESSAGE msg2
+   CALL FUNCTION fnc1 IN UPDATE TASK
+     EXPORTING  p1 = v1
+     TABLES     p1 = tabla1
+   CALL FUNCTION fnc1 DESTINATION dest1
+     EXPORTING  p1 = v1
+     IMPORTING  p1 = v1
+     TABLES     p1 = tabla1
+     CHANGING   p1 = v1
+     EXCEPTIONS exc1 = retc2
+     EXCEPTIONS exc1 = retc2  MESSAGE mess
+   CALL FUNCTION fnc1 IN BACKGROUND TASK
+     AS SEPARATE UNIT
+     DESTINATION desti1
+     EXPORTING  p1 = v1
+     TABLES     p1 = tabla1
+   CALL CUSTOMER-FUNCTION fnc1
+     EXPORTING  p1 = v2
+     IMPORTING  p1 = v2
+     TABLES     p1 = tabla1
+     CHANGING   p1 = v2
+     EXCEPTIONS exc2 = retc1
+   CALL SCREEN scr1
+     STARTING AT x1 y1
+     ENDING AT x2 y2
+   CALL TRANSACTION tran1
+     AND SKIP FIRST SCREEN
+     USING tabla1
+       MODE m1
+       UPDATE upd1
+       MESSAGES INTO msg1
+   CALL DIALOG dlog1
+     USING tabla
+       MODE mode1
+     AND SKIP FIRST SCREEN
+     EXPORTING v1 FROM v2
+     IMPORTING v1 TO   v2
+   CALL METHOD met1 (
+     EXPORTING p1 = v1
+     IMPORTING p1 = v1
+     CHANGING  p1 = v1 )
+   CALL METHOD met1
+     EXPORTING  p1 = v1
+     IMPORTING  p1 = v1
+     CHANGING   p1 = v1
+     RECEIVING  p1 = v1
+     EXCEPTIONS ex = idx
+   CALL cfunc1
+     ID id1 FIELD v1 ... ID id1 FIELD v2
+
+CASE:
+   CASE v1
+     WHEN bed1
+       stm1
+     WHEN bed2
+       stm2
+     WHEN bedx
+     WHEN OTHERS
+       stm3
+    ENDCASE
+
+CHECK:
+   CHECK SELECT-OPTIONS
+   CHECK logexp1
+   CHECK s1
+
+CLEAR:
+   CLEAR v1
+     WITH lit1
+     WITH NULL
+
+CLOSE:
+   CLOSE CURSOR curs1
+   CLOSE DATASET dsn1
+
+COLLECT:
+   COLLECT tabla1
+   COLLECT wrk1 INTO tabla2
+
+COMMIT:
+   COMMIT WORK
+     AND WAIT
+
+COMMUNICATION:
+   COMMUNICATION INIT DESTINATION desti1 ID ident1
+   COMMUNICATION ALLOCATE ID iden1
+   COMMUNICATION ACCEPT ID ident1
+   COMMUNICATION SEND ID ident 1 BUFFER b1
+   COMMUNICATION RECEIVE ID ident1
+     BUFFER b1
+     DATAINFO datn1
+     STATUSINFO stat1
+   COMMUNICATION DEALLOCATE ID ident1
+
+CONCATENATE:
+   CONCATENATE v1 v2 ... vx INTO f2
+     SEPARATED BY f3
+
+COMPUTE:
+   COMPUTE v1 = arithexp
+
+CONDENSE:
+   CONDENSE r1
+     NO-GAPS
+   CONDENSE v1
+
+CONSTANTS:
+   CONSTANTS con1 ... VALUE valu1
+   CONSTANTS con1 ... VALUE IS INITIAL
+   CONSTANTS con1(len2) ... VALUE valu1
+   CONSTANTS con1(len2) ... VALUE IS INITIAL
+   CONSTANTS: BEGIN OF conr1,
+   CONSTANTS: END OF conr1
+
+CONTINUE:
+   CONTINUE
+
+CONTROLS:
+   CONTROLS contrl TYPE TABLEVIEW USING SCREEN
+
+CONVERT:
+   CONVERT DATE v1 INTO INVERTED-DATE v2
+   CONVERT INVERTED-DATE v1 INTO DATE v2
+   CONVERT TEXT text1 INTO SORTABLE CODE cod2
+
+CREATE:
+   CREATE OBJECT obj1 class2
+     LANGUAGE lang1
+
+DATA:
+   DATA: BEGIN OF tabla1
+     INCLUDE STRUCTURE struc1
+   DATA: END OF tabla1
+   DATA: BEGIN OF COMMON PART cp1
+   DATA: END OF COMMON PART
+   DATA: BEGIN OF tabla1 OCCURS n2
+     VALID BETWEEN v1 AND v2
+   DATA: END OF tabla1
+   DATA: BEGIN OF rec1
+   DATA: END OF rec1
+   DATA: v1
+     TYPE typ1
+     LIKE v1
+     TYPE typ1 OCCURS n2
+     LIKE v1  OCCURS n2
+     TYPE LINE OF ityp1
+     LIKE LINE OF tabla1
+     VALUE lit1
+     DECIMALS n1
+     WITH HEADER LINE
+   DATA: v1(len1)
+     TYPE tipo
+     TYPE typ1 OCCURS n2
+     TYPE LINE OF ityp1
+     VALUE lit1
+     DECIMALS n1
+     WITH HEADER LINE
+
+DEFINE:
+   DEFINE name1
+     stm1
+     stm2
+   END-OF-DEFINITION
+
+DELETE:
+   DELETE tabla1
+   DELETE tabla1 INDEX ix2
+   DELETE tabla1 FROM ix2 TO ix3
+   DELETE tabla1 WHERE cond2
+     FROM ix1
+     TO   ix2
+   DELETE ADJACENT DUPLICATES FROM tabla1
+     COMPARING v1 v2 ...
+     COMPARING ALL FIELDS
+   DELETE etab1
+   DELETE *etab1
+   DELETE FROM etab1 WHERE cond2
+     CLIENT SPECIFIED
+   DELETE FROM (name_etab1) WHERE cond2
+     CLIENT SPECIFIED
+   DELETE (name_etab1)
+     FROM area1
+     CLIENT SPECIFIED
+   DELETE etab FROM TABLE tabla2
+   DELETE (name_etab1) FROM TABLE tabla
+     CLIENT SPECIFIED
+   DELETE etab1 VERSION ver2
+   DELETE *etab1 VERSION ver2
+   DELETE DATASET name1
+   DELETE FROM DATABASE etab1(ar) ID key2
+     CLIENT v1
+   DELETE REPORT name1
+   DELETE TEXTPOOL name1 LANGUAGE lan2
+   DELETE DYNPRO v1
+   DELETE FROM SHARED BUFFER etab1(ar) ... ID
+
+DESCRIBE:
+   DESCRIBE DISTANCE BETWEEN v1 AND v2 INTO v2
+   DESCRIBE FIELD v1
+     DECIMALS n1
+     EDIT MASK msk1
+     LENGTH n1
+     OUTPUT-LENGTH n1
+     TYPE t1 COMPONENTS n2
+     TYPE t1
+   DESCRIBE LIST
+     NUMBER OF LINES ln1
+       INDEX ix1
+     NUMBER OF PAGES n1
+       INDEX ix1
+     LINE lin PAGE pn1
+       INDEX ix1
+   DESCRIBE LIST PAGE pag1
+     INDEX ix1
+     LINE-SIZE col1
+     LINE-COUNT lin1
+     LINES lin1
+     FIRST-LINE lin1
+     TOP-LINES lin1
+     TITLE-LINES lin1
+     HEAD-LINES lin1
+     END-LINES lin1
+   DESCRIBE TABLE tabla1
+     LINES n1
+     OCCURS n1
+
+DETAIL:
+   DETAIL
+
+DIVIDE:
+   DIVIDE v1 BY v2
+   DIVIDE-CORRESPONDING r1 BY r2
+
+DO:
+   DO
+   DO v1 TIMES       
+   DO n1 TIMES
+     VARYING v1 FROM v2 NEXT v3
+   DO n1 TIMES
+     VARYING v1 FROM v2 NEXT v3
+   ENDDO
+   DO 254 TIMES.     
+      MOVE '#' TO SY-ULINE+SY-INDEX(1).
+   ENDDO
+
+EDITOR-CALL:
+   EDITOR-CALL FOR tabla
+     TITLE text
+     DISPLAY-MODE
+   EDITOR-CALL FOR REPORT name
+     DISPLAY-MODE
+
+ELSE:
+   ELSE
+   ELSEIF logop1
+
+END:
+   END-OF-DEFINITION
+   END-OF-PAGE
+   END-OF-SELECTION
+   ENDAT
+   ENDCASE
+   ENDDO
+   ENDEXEC
+   ENDFORM
+   ENDFUNCTION
+   ENDIF
+   ENDLOOP
+   ENDMODULE
+   ENDON
+   ENDPROVIDE
+   ENDSELECT
+   ENDWHILE
+
+EXEC SQL:
+   EXEC SQL
+     PERFORMING form
+     ENDEXEC
+
+EXIT:   
+   EXIT
+   EXIT FROM SQL
+   EXIT FROM STEP-LOOP
+
+EXPORT:
+   EXPORT objn1 ... objn2 TO MEMORY
+     FROM v1 ...
+     ID key1
+   EXPORT objn1 ... objn2 TO DATABASE etab3(ar4) ID key5
+     FROM v1
+     CLIENT c1
+     USING form_name
+   EXPORT obj1 ... objn2 TO DATASET dsn3(ar4) ID key5
+   EXPORT obj1 ... objn2 TO SHARED BUFFER etab3(ar4) ID key5
+     FROM v1 ...
+     CLIENT c1
+   EXPORT DYNPRO head1 fields2 order3 match4 ID id4
+   EXPORT NAMETAB h f ID id
+
+EXTRACT:
+   EXTRACT r1
+   
+FETCH:
+   FETCH NEXT CURSOR c1 INTO work2
+   
+FIELD-GROUPS:
+   FIELD-GROUPS: fgr1, fgr2 ...
+
+FIELD-SYMBOLS:
+   FIELD-SYMBOLS <fs1>
+     STRUCTURE stru1 DEFAULT work2
+     TYPE typ1
+     TYPE LINE OF typ1
+     LIKE s1
+     LIKE LINE OF s1
+
+FIELDS:
+   FIELDS v1
+
+FORM:
+   FORM pp1
+     USING p2 p3 ...
+   ENDFORM.
+   FORM form_name1
+     USING p1 p2 ...
+     USING VALUE(p1) VALUE(p2) ...
+     CHANGING p1 p2 ...
+     CHANGING VALUE(p1) VALUE(p2) ...
+     TABLES tabla1 tabla2 ...
+     STRUCTURE name1
+
+FORMAT:
+   FORMAT
+     COLOR n1
+     INTENSIFIED
+     INVERSE
+     HOTSPOT
+     INPUT
+     RESET
+
+FREE:
+   FREE v1
+   FREE MEMORY
+     ID key1
+   FREE OBJECT objname1
+   FREE tabla1
+
+FROM:
+   FROM etab1
+     CLIENT SPECIFIED
+     BYPASSING BUFFER
+     UP TO n ROWS
+   FROM (etab_name1)
+
+FUNCTION:
+   FUNCTION name1
+   ENDFUNCTION
+   FUNCTION-POOL
+     MESSAGE-ID id1
+
+GENERATE:
+   GENERATE REPORT prog
+     MESSAGE v1
+     INCLUDE v1
+     LINE v1
+     WORD v1
+     OFFSET v1
+     TRACE-FILE v1
+     DIRECTORY ENTRY v1
+     WITHOUT SELECTION-SCREEN
+   GENERATE SUBROUTINE POOL tabla1 NAME name2
+     MESSAGE v1
+     INCLUDE v2
+     LINE v3
+     WORD v4
+     OFFSET v5
+     TRACE-FILE v6
+   GENERATE DYNPRO head1 fields2 order3 match4 ID id4
+     OFFSET v1
+     TRACE-FILE v1
+
+GET:
+   GET etab1
+     LATE
+     FIELDS v1 ...
+   GET CURSOR FIELD f
+     OFFSET v1
+     LINE   v1
+     VALUE  v1
+     LENGTH v1
+   GET CURSOR LINE lin
+     OFFSET v1
+     VALUE  v1
+     LENGTH v1
+   GET TIME
+   GET RUN TIME
+   GET RUN TIME FIELD v1
+   GET PARAMETER ID key1 FIELD v1
+   GET PROPERTY OF name1 attrib2 = v3
+     NO FLUSH
+
+GROUP-BY:
+   GROUP BY v1 v2 ...
+   GROUP BY (tabla1)
+
+HIDE:
+   HIDE lin_v1
+
+IF:
+   IF v1 EQ v2       
+     stm1
+   ELSE
+     stm2
+   ENDIF
+   IF v1 EQ v2          
+   IF v1 LT v2          
+   IF v1 GT v2          
+   IF v1 IS INITIAL
+   IF v1 IS REQUESTED
+   IF v1 logexp1        
+   IF v1 logexp2        
+   IF exp1 AND exp2 ...
+   IF exp1 OR  exp2 ...
+   IF exp1 NOT exp2 ...
+   IF v1 CA v2          
+   IF v1 NA v2          
+   IF v1 CO v2          
+   IF v1 CN v2          
+   IF v1 CP v2          
+   IF v1 NP v2          
+   IF v1 CS v2          
+   IF v1 NS v2          
+   IF v1 M              
+   IF v1 O              
+   IF v1 Z              
+
+IMPORT:
+   IMPORT v1 tabla2 ... FROM DATABASE  etab3(ar4) ID key5
+     TO v6 ...          
+     MAJOR-ID maj1 ...
+     MAJOR-ID maj1  MINOR-ID min2
+     CLIENT h
+     USING form_name1
+   IMPORT DIRECTORY INTO tabla1 FROM DATABASE etab2(ar3) ID key4
+     CLIENT cl1
+   IMPORT v1 tabla2 ... FROM LOGFILE ID key3
+     TO v4              
+   IMPORT DYNPRO head1 tabla2 logik3 matchc4 ID id5
+   IMPORT v1 tabla2 ... FROM MEMORY
+     TO v3 ...          
+     ID key
+   IMPORT v1 tabla2 ... FROM SHARED BUFFER etab3(ar4) ID key5
+     TO v6              
+     CLIENT cl6
+
+INCLUDE:
+   INCLUDE STRUCTURE rec1
+   INCLUDE TYPE typename1
+   INCLUDE pname1
+
+INFOTYPES:
+   INFOTYPES: n1
+     NAME v1
+     OCCURS n1
+     MODE m1
+     VALID FROM begdt1 TO enddt2
+
+INITIALIZATION:
+   INITIALIZATION
+   INPUT
+
+INSERT:
+   INSERT etab1
+     CLIENT SPECIFIED
+   INSERT etab1 FROM work2
+   INSERT etab1 FROM TABLE tabla1
+     ACCEPTING DUPLICATE KEYS
+   INSERT INTO etab1
+     CLIENT SPECIFIED
+     VALUES wb2
+   INSERT (etab)
+     CLIENT SPECIFIED
+   INSERT (etab) FROM work2
+   INSERT (etab) FROM TABLE tabla1
+     ACCEPTING DUPLICATE KEYS
+   INSERT INTO (etab1)
+     CLIENT SPECIFIED
+     VALUES wb2
+   INSERT tabla1
+   INSERT tabla1 INDEX ix2
+   INSERT work1 INTO tabla2
+   INSERT work1 INTO tabla2 INDEX ix3
+   INSERT INITIAL LINE INTO tabla2
+   INSERT LINES OF tabla1 INTO tabla2
+   INSERT LINES OF tabla1 FROM ix1 INTO tabla2
+   INSERT LINES OF tabla1 FROM ix1 TO ix2 INTO tabla2
+   INSERT LINES OF tabla1 FROM ix1 TO ix2 INTO tabla2 INDEX ix3
+   INSERT REPORT name FROM tabla
+   INSERT TEXTPOOL name FROM tabla LANGUAGE l1
+   INSERT Field groups
+   INSERT v1 v2 ... INTO fgroup3
+
+INTO:
+   INTO area1
+   INTO CORRESPONDING FIELDS OF area1
+   INTO (v1, v2, ...)
+   INTO TABLE tabla1
+     PACKAGE SIZE n1
+   INTO CORRESPONDING FIELDS OF TABLE tabla1
+       PACKAGE SIZE n1
+     APPENDING TABLE tabla1
+       PACKAGE SIZE n1
+     APPENDING CORRESPONDING FIELDS OF TABLE tabla1
+       PACKAGE SIZE n1
+
+LEAVE:
+   LEAVE
+   LEAVE PROGRAM
+   LEAVE TO TRANSACTION tac1
+     AND SKIP FIRST SCREEN
+   LEAVE TO SCREEN dynp1
+   LEAVE SCREEN
+   LEAVE TO  LIST-PROCESSING
+     AND RETURN TO SCREEN dynp1
+   LEAVE LIST-PROCESSING
+
+LOAD:
+   LOAD REPORT pnam1 PART 'HEAD' INTO tabla2
+   LOAD REPORT pnam1 PART 'TRIG' INTO tabla2
+   LOAD REPORT pnam1 PART 'CONT' INTO tabla2
+   LOAD REPORT pnam1 PART 'DATA' INTO tabla2
+   LOAD REPORT pnam1 PART 'DDNM' INTO tabla2
+   LOAD REPORT pnam1 PART 'DATV' INTO tabla2
+   LOAD REPORT pnam1 PART 'SELC' INTO tabla2
+   LOAD REPORT pnam1 PART 'STOR' INTO tabla2
+   LOAD REPORT pnam1 PART 'LITL' INTO tabla2
+   LOAD REPORT pnam1 PART 'SYMB' INTO tabla2
+   LOAD REPORT pnam1 PART 'LREF' INTO tabla2
+   LOAD REPORT pnam1 PART 'SSCR' INTO tabla2
+   LOAD REPORT pnam1 PART 'BASE' INTO tabla2
+   LOAD REPORT pnam1 PART 'INIT' INTO tabla2
+   LOAD REPORT pnam1 PART 'DATP' INTO tabla2
+   LOAD REPORT pnam1 PART 'TXID' INTO tabla2
+   LOAD REPORT pnam1 PART 'COMP' INTO tabla2
+
+LOCAL:
+   LOCAL v1
+
+LOOP:
+   LOOP AT tabla1
+     WRITE: /1 tabla1-f1
+   ENDLOOP
+
+   LOOP AT tabla
+     FROM n1
+     TO n2
+     WHERE logexp1
+     TRANSPORTING NO FIELDS
+
+   LOOP AT tabla INTO wa
+     FROM n1
+     TO n2
+     WHERE logexp1
+     TRANSPORTING NO FIELDS
+
+   LOOP AT SCREEN
+
+MESSAGE:
+   MESSAGE msgnr1
+     WITH v1 v2 ...                      
+     RAISING exc1                        
+   MESSAGE ID id1 TYPE mtyp2 NUMBER mnr3
+     WITH v1 v2 ...                      
+
+MODIFY:
+   MODIFY etab
+   MODIFY *etab
+   MODIFY (etab_name1)
+     FROM area1
+     CLIENT SPECIFIED
+   MODIFY etab1 FROM TABLE
+   MODIFY etab1 FROM TABLE tabla2
+   MODIFY (etab-name1) FROM TABLE tabla2
+     CLIENT SPECIFIED
+
+   MODIFY tabla1
+     INDEX ix3
+     TRANSPORTING v4 v5 ...
+     WHERE logexp6
+   MODIFY tabla1 FROM wk2
+
+   MODIFY LINE n1
+     INDEX ix1
+     LINE FORMAT lfmt1 lfmt2 ...
+     FIELD VALUE
+     FIELD FORMAT
+   MODIFY LINE n1 OF CURRENT PAGE
+     LINE FORMAT lfmt1 lfmt2 ...
+     FIELD VALUE
+     FIELD FORMAT
+   MODIFY LINE n1 OF PAGE m2
+     LINE FORMAT lfmt1 lfmt2 ...
+     FIELD VALUE
+     FIELD FORMAT
+   MODIFY CURRENT LINE
+     LINE FORMAT lfmt1 lfmt2 ...
+     FIELD VALUE
+     FIELD FORMAT
+
+   MODIFY SCREEN
+
+MODULE:
+   MODULE mname1
+      stm1
+   ENDMODULE
+
+   MODULE mname1
+     OUTPUT
+     INPUT
+
+MOVE:
+   MOVE v1 TO v2
+   MOVE v1+off1(len1) TO v2+off2(len2)
+   MOVE v1 TO v2 PERCENTAGE v3
+     RIGHT
+     LEFT
+     RIGHT
+   MOVE-CORRESPONDING rec1 TO rec2
+
+MULTIPLY:
+   MULTIPLY v1 BY v2
+   MULTIPLY-CORRESPONDING r1 BY r2
+
+NEW-LINE:
+   NEW-LINE
+     NO-SCROLLING
+     SCROLLING
+
+NEW-PAGE:
+   NEW-PAGE PRINT ON
+     ARCHIVE MODE armode
+     ARCHIVE PARAMETERS arparams
+     ARCHIVE PARAMETERS arparams
+     COPIES n1
+     COVER TEXT lit
+     DATASET EXPIRATION days
+     DEPARTMENT name1
+     DESTINATION dest1
+     IMMEDIATELY flag
+     KEEP IN SPOOL flag
+     LAYOUT layer1
+     LINE-COUNT l1
+     LINE-SIZE  c1
+     LIST AUTHORITY auth1
+     LIST DATASET dsname
+     LIST NAME name
+     NEW LIST IDENTIFICATION flag
+     NEW-SECTION
+     NEW-SECTION
+     NO DIALOG
+     NO DIALOG
+     PARAMETERS para1
+     RECEIVER r1
+     SAP COVER PAGE m1
+   NEW-PAGE
+     LINE-COUNT lin1
+     LINE-SIZE c1
+     NO-HEADING
+     NO-TITLE
+     WITH-HEADING
+     WITH-TITLE
+     PRINT ON ...
+     PRINT OFF
+
+ON:
+   ON CHANGE OF v1
+     stm1
+   ENDON
+
+   ON CHANGE OF v1
+     OR v1 ...
+
+OPEN DATASET:
+   OPEN DATASET name1
+     AT POSITION pos1
+     FILTER bs
+     FOR APPENDING
+     FOR INPUT
+     FOR OUTPUT
+     IN BINARY MODE
+     IN TEXT MODE
+     MESSAGE msg1
+     TYPE t1
+
+OPEN CURSOR:
+   OPEN CURSOR c1 FOR SELECT
+     WITH HOLD
+
+ORDER-BY:
+   ORDER BY PRIMARY KEY
+   ORDER BY v1 v2 ...
+   ORDER BY (tabla)
+
+OVERLAY:
+   OVERLAY v1 WITH v2
+     ONLY v3
+
+PACK:
+   PACK v1 TO v2
+
+PARAMETERS:
+   PARAMETERS p1
+     AS CHECKBOX
+     DEFAULT value
+     FOR TABLE etab1
+     LIKE v1
+     LOWER CASE
+     MATCHCODE OBJECT objname1
+     MEMORY ID mid1
+     MODIF ID key1
+     NO-DISPLAY
+     OBLIGATORY
+     TYPE typ1
+     DECIMALS n1
+     RADIOBUTTON GROUP radbut1
+     FOR TABLE etab1
+     AS MATCHCODE STRUCTURE
+     VALUE-REQUEST
+     HELP-REQUEST
+
+PERFORM:
+   PERFORM form IN PROGRAM prog
+     CHANGING p1 p2 p3 ...
+     IF FOUND
+     TABLES tabla1 tabla2 ...
+     USING p1 p2 p3 ...
+   PERFORM form1(prog2)
+     CHANGING p1 p2 p3 ...
+     IF FOUND
+     TABLES tabla1 tabla2 ...
+     USING p1 p2 p3 ...
+   PERFORM form1
+     USING    p1 p2 p3 ...
+     CHANGING p1 p2 p3 ...
+     TABLES   tabla1 tabla2 ...
+   PERFORM n OF form1 form2 form3 ...
+   PERFORM n ON COMMIT
+     LEVEL v1
+
+POSITION:
+   POSITION col
+
+PRINT-CONTROL:
+   PRINT-CONTROL
+     CPI cpi1
+     LPI lpi1
+     SIZE size1
+     COLOR
+       BLACK
+       RED
+       BLUE
+       GREEN
+       YELLOW
+       PINK
+     LEFT MARGIN col1
+     FONT font1
+     FUNCTION v1
+     LINE lin
+     POSITION col
+   PRINT-CONTROL INDEX-LINE f
+
+PROGRAM:
+   PROGRAM
+
+PROVIDE:
+   PROVIDE v1 v2 FROM itab3
+           v4 v5 FROM itab6
+     BETWEEN v7 AND v8
+   ENDPROVIDE
+
+PUT:
+   PUT etab1
+
+RAISE:
+   RAISE expt1
+
+RANGES:
+   RANGES sel FOR f
+     OCCURS occ
+
+READ:
+   READ LINE l1
+     FIELD VALUE v1 INTO v2
+     INDEX ix
+   READ LINE lin OF CURRENT PAGE
+   READ LINE lin OF PAGE pag
+   READ CURRENT LINE
+   READ TABLE etab.      " (-> old)
+   READ TABLE tabla1
+     BINARY SEARCH
+     COMPARING ALL FIELDS
+     COMPARING v1 v2 ...
+     INDEX ix1
+     TRANSPORTING NO FIELDS
+     TRANSPORTING v1 v2 ...
+     WITH KEY key
+     WITH KEY key BINARY SEARCH
+     WITH KEY
+     WITH KEY = value1
+   READ TABLE tabla INTO area1
+     BINARY SEARCH
+     COMPARING ALL FIELDS
+     COMPARING v1 v2 ...
+     INDEX ix1
+     TRANSPORTING NO FIELDS
+     TRANSPORTING v1 v2 ...
+     WITH KEY key
+     WITH KEY key BINARY SEARCH
+     WITH KEY
+     WITH KEY = value1
+   READ REPORT prog INTO tabla1
+   READ TEXTPOOL prog INTO tabla LANGUAGE l1
+   READ DATASET dsnname1 INTO wk2
+     LENGTH len
+
+RECEIVE:
+   RECEIVE RESULTS FROM FUNCTION func
+     IMPORTING
+     TABLES
+     EXCEPTIONS
+
+REFRESH:
+   REFRESH tabla1 FROM SELECT-OPTIONS
+   REFRESH tabla1 FROM TABLE etab2       "-> old
+   REFRESH tabla1
+   REFRESH CONTROL ctrl FROM SCREEN dynpr2
+
+REJECT:
+   REJECT etab1
+                 네
+REPLACE:
+   REPLACE v1 WITH v2 INTO v3
+     LENGTH len1
+
+REPORT:
+   REPORT repname1
+     NO STANDARD PAGE HEADING
+     LINE-SIZE col
+     LINE-COUNT lin(n)
+     MESSAGE-ID xx
+     DEFINING DATABASE ldb
+
+RESERVE:
+   RESERVE n LINES
+
+ROLLBACK:
+   ROLLBACK WORK
+
+SCAN:
+   SCAN ABAP-SOURCE tabla1 ... TOKENS INTO tabla2 ...
+     FROM v1
+     TO   v1
+     KEYWORDS FROM tabla1
+     LEVELS   INTO tabla1
+     OVERFLOW INTO tabla1
+     WITH ANALYSIS
+     WITH COMMENTS
+     WITH INCLUDES
+     WITHOUT TRMAC
+     PROGRAM FROM v1
+     INCLUDE INTO v1
+     MESSAGE INTO v1
+     WORD    INTO v1
+     LINE    INTO v1
+     OFFSET  INTO v1
+
+SCROLL:
+   SCROLL LIST TO FIRST PAGE
+     INDEX ix1
+     LINE lin1
+   SCROLL LIST TO LAST PAGE
+     INDEX ix1
+     LINE lin1
+   SCROLL LIST TO PAGE pag
+     INDEX ix1
+     LINE lin1
+   SCROLL LIST TO COLUMN col
+     INDEX ix1
+     LINE lin1
+   SCROLL LIST FORWARD
+     INDEX ix1
+     n1 PAGES
+   SCROLL LIST BACKWARD
+     INDEX ix1
+     n1 PAGES
+   SCROLL LIST LEFT
+     INDEX ix1
+     BY n1 PLACES
+   SCROLL LIST RIGHT
+     INDEX ix1
+     BY n1 PLACES
+
+SEARCH:
+   SEARCH v1 FOR v2
+     ABBREVIATED
+     STARTING AT n1
+     ENDING   AT n2
+     AND MARK
+   SEARCH tabla1 FOR v2
+     ABBREVIATED
+     STARTING AT n1
+     ENDING   AT n2
+     AND MARK
+
+SELECT:
+   SELECT {AutoSelect}
+
+   SELECT * FROM etab                
+     WHERE etab_v1 EQ v2
+     AND   etab_v3 EQ v4
+   ENDSELECT
+
+   SELECT etab_v1 etab_v2            
+          etab_v3 etab_v3
+     FROM etab
+     WHERE etab_v1 EQ v2
+     AND   etab_v3 EQ v4
+   ENDSELECT
+
+   SELECT * INTO wrk1                
+     FROM etab
+     WHERE etab_v1 EQ v2
+     AND   etab_v3 EQ v4
+   ENDSELECT
+
+   SELECT * FROM etab1              
+     WHERE etab_v1 EQ v2
+     AND  etab_v3 EQ v4
+     ORDER BY PRIMARY KEY
+   ENDSELECT
+
+   SELECT * FROM etab1              
+     CLIENT SPECIFIED
+     BYPASSING BUFFER
+     UP TO n5 ROWS
+     WHERE etab_v1 EQ v2
+       AND etab_v3 EQ v4
+   ENDSELECT
+
+   SELECT SINGLE * FROM etab        
+     WHERE etab_v1 EQ v2
+     AND   etab_v3 EQ v4
+
+
+   SELECT *
+   SELECT SINGLE *
+   SELECT SINGLE FOR UPDATE *
+   SELECT DISTINCT *
+
+   SELECT etab_v1 ...
+   SELECT SINGLE etab_v1 ...
+   SELECT SINGLE FOR UPDATE etab_v1 ...
+   SELECT DISTINCT etab_v1 ...
+
+   SELECT (tabla1)
+   SELECT SINGLE (tabla)
+   SELECT SINGLE FOR UPDATE (tabla)
+   SELECT DISTINCT (tabla)
+
+INTO de SELECT:
+   INTO wrk1
+   INTO CORRESPONDING FIELDS OF wrk1
+   INTO (v1, v2 ...)
+   INTO TABLE tabla1
+     PACKAGAE SIZE
+   INTO CORRESPONDING FIELDS OF TABLE tabla
+     PACKAGAE SIZE
+   INTO APPENDING TABLE tabla
+     PACKAGAE SIZE
+   INTO APPENDING CORRESPONDING FIELDS OF TABLE tabla
+     PACKAGAE SIZE
+
+FROM de SELECT:
+   FROM etab1                       
+     CLIENT SPECIFIED
+     BYPASSING BUFFER
+     UP TO n1 ROWS
+   FROM (etab1)                     
+     CLIENT SPECIFIED
+     BYPASSING BUFFER
+     UP TO n1 ROWS
+
+WHERE de SELECT:
+   WHERE where_condition
+   WHERE NOT where_condition        
+   WHERE wherebedinung AND where_condition          
+   WHERE wherebedinung OR  where_condition       
+     FOR ALL ENTRIES IN tabla1 WHERE where_condition
+     FOR ALL ENTRIES IN tabla1 WHERE NOT where_condition
+     FOR ALL ENTRIES IN tabla1 WHERE where_condition AND where_condition
+     FOR ALL ENTRIES IN tabla1 WHERE where_condition OR  where_condition
+
+   SELECT ... where_condici?   
+     FOR ALL ENTRIES IN tabla1   
+
+   WHERE f1 =  v1
+   WHERE f1 EQ v1
+   WHERE f1 NE v1
+   WHERE f1 <> v1
+   WHERE f1 >< v1
+   WHERE f1 LT v1
+   WHERE f1 <  v1
+   WHERE f1 LE v1
+   WHERE f1 <= v1
+   WHERE f1 =< v1
+   WHERE f1 GT v1
+   WHERE f1 >  v1
+   WHERE f1 GE v1
+   WHERE f1 >= v1
+   WHERE f1 => v1
+
+   WHERE f1
+     BETWEEN v1 AND v2
+     LIKE v1
+     IN tabla1
+     IN (v2, v3, ...)
+   WHERE f1 NOT
+     BETWEEN v1 AND v2
+     LIKE v1
+     IN tabla1
+     IN (v2, v3, ...)
+
+   WHERE f1 IS NULL
+   WHERE f1 IS NOT NULL
+
+GROUP-BY de SELECT:
+   GROUP BY v1 v2 ...
+     HAVING wherecond
+   GROUP BY (tabla)
+     HAVING wherecond
+
+ORDER-BY de SELECT:
+   ORDER BY PRIMARY KEY
+   ORDER BY v1 v2 ...
+   ORDER BY (tabla1)
+
+SELECT-OPTIONS:
+   SELECT-OPTIONS sel1 FOR v2
+     DEFAULT lit1
+     DEFAULT lit1 ... OPTION op2 ... SIGN ie3
+     DEFAULT lit1 TO lit2
+     DEFAULT lit1 TO lit1 OPTION op2 ... SIGN ie3
+     MEMORY ID spa1
+     MATCHCODE OBJECT mtch1
+     MODIF ID scrg1
+     NO-DISPLAY
+     LOWER CASE
+     OBLIGATORY
+     NO-EXTENSION
+     NO INTERVALS
+     NO DATABASE SELECTION
+     VALUE-REQUEST
+     VALUE-REQUEST FOR LOW/HIGH
+     HELP-REQUEST
+     HELP-REQUEST FOR LOW/HIGH
+
+SELECTION-SCREEN:
+   SELECTION-SCREEN BEGIN OF LINE
+   SELECTION-SCREEN END   OF LINE
+   SELECTION-SCREEN SKIP n1
+     FOR TABLE etab1
+     ID id1
+   SELECTION-SCREEN ULINE
+     pos1
+     FOR TABLE etab1
+     MODIF ID scr1
+     ID id1
+   SELECTION-SCREEN POSITION pos1
+     FOR TABLE etab1
+   SELECTION-SCREEN COMMENT fmt name
+     FOR TABLE etab1
+     FOR FIELD v1
+     MODIF ID scr1
+     ID id1
+   SELECTION-SCREEN PUSHBUTTON fmt name USER-COMMAND ucom
+     FOR TABLE etab1
+     MODIF ID scr1
+     ID id1
+   SELECTION-SCREEN BEGIN OF BLOCK blck1
+     WITH FRAME
+     TITLE titl1
+     NO INTERVALS
+   SELECTION-SCREEN END OF BLOCK blck1
+   SELECTION-SCREEN FUNCTION KEY n1_5
+     FOR TABLE etab1
+     ID id1
+   SELECTION-SCREEN BEGIN OF VERSION ver TEXT-xxx
+   SELECTION-SCREEN END OF VERSION ver
+   SELECTION-SCREEN EXCLUDE ...
+     PARAMETERS par
+     SELECT-OPTIONS sel
+     RADIOBUTTON GROUPS radi
+     BLOCKS block
+     IDS id
+   SELECTION-SCREEN DYNAMIC SELECTIONS FOR TABLE dbtab
+   SELECTION-SCREEN FIELD SELECTION FOR TABLE dbtab
+
+SET:
+   SET BLANK LINES ON
+   SET BLANK LINES OFF
+   SET COUNTRY count1
+   SET CURSOR FIELD v1
+     OFFSET off1
+     LINE lin1
+   SET CURSOR LINE lin1
+     OFFSET off1
+   SET CURSOR col1 lin2
+   SET EXTENDED CHECK
+   SET LANGUAGE langu1
+   SET LOCALE LANGUAGE lg
+     COUNTRY cout1
+     MODIFIER m1
+   SET MARGIN vcol1 vlin2
+   SET PARAMETER ID pid1 FIELD v2
+   SET PF-STATUS pf1
+     EXCLUDING
+     IMMEDIATELY
+   SET PROPERTY OF obj1 attrb2 = v3
+     NO FLUSH
+   SET RUN TIME ANALYZER ON
+   SET RUN TIME ANALYZER OFF
+   SET SCREEN dynnr1
+   SET LEFT SCROLL-BOUNDARY
+     COLUMN col1
+   SET TITLEBAR titl1
+     WITH &1 &2 ...
+   SET UPDATE TASK LOCAL
+   SET USER-COMMAND lit1
+
+SHIFT:
+   SHIFT v1
+     CIRCULAR
+     LEFT
+     RIGHT
+   SHIFT r1 BY n PLACES
+     CIRCULAR
+     LEFT
+     RIGHT
+   SHIFT r1 UP TO r2
+     CIRCULAR
+     LEFT
+     RIGHT
+   SHIFT v1 LEFT  DELETING LEADING  c1
+   SHIFT v1 RIGHT DELETING TRAILING c1
+
+SKIP:
+   SKIP TO LINE l1
+   SKIP n
+
+SORT:
+   SORT  
+     BY v1 v2 ...
+     ASCENDING
+     DESCENDING
+     AS TEXT
+   SORT tabla1
+     BY v1 v2 ...
+     ASCENDING
+     DESCENDING
+     AS TEXT
+
+SPLIT:
+   SPLIT v1 AT v2 INTO targ1 targ2
+   SPLIT f AT g INTO TABLE tabla
+
+START-OF-SELECTION:
+   START-OF-SELECTION
+
+STATICS:
+   STATICS v1
+   STATICS v1(len2)
+   STATICS: BEGIN OF rec,
+   STATICS: END   OF rec,
+   STATICS: BEGIN OF tabla OCCURS n,
+   STATICS: END OF tabla
+
+STOP:
+   STOP
+
+SUBMIT:
+   SUBMIT repname1
+   SUBMIT (repname1)
+     LINE-SIZE col1
+     LINE-COUNT lin1
+     VIA SELECTION-SCREEN
+     AND RETURN
+     EXPORTING LIST TO MEMORY
+     USER user1 VIA JOB job2 NUMBER n3
+     TO SAP-SPOOL
+       DESTINATION dest1
+       COPIES num1
+       LIST NAME name1
+       LIST DATASET dsname1
+       COVER TEXT text1
+       LIST AUTHORITY auth1
+       IMMEDIATELY x1
+       KEEP IN SPOOL x1
+       NEW LIST IDENTIFICATION x1
+       DATASET EXPIRATION days1
+       LINE-COUNT lin1
+       LINE-SIZE  col1
+       LAYOUT layer1
+       SAP COVER PAGE mode1
+       COVER PAGE x1
+       RECEIVER rec1
+       DEPARTMENT name1
+       ARCHIVE MODE mode1
+       ARCHIVE PARAMETERS para1
+       WITHOUT SPOOL DYNPRO
+     USING SELECTION-SETS OF PROGRAM pname1
+       WITH SELECTION-SET v1
+       WITH p1 logop2 v3 SIGN ie4
+       WITH p1 BETWEEN v2 AND v3 SIGN ie4
+       WITH p1 NOT BETWEEN v2 AND v3 SIGN ie4
+       WITH p1 IN sel_tabla1
+       WITH SELECTION-TABLE sel_tabla1
+       WITH FREE SELECTIONS rsds_tabla1
+
+SUBTRACT:        
+   SUBTRACT v1 FROM v2
+   SUBTRACT-CORRESPONDING rec1 FROM rec2
+
+SUM:
+   SUM
+
+SUMMARY:
+   SUMMARY
+
+SUPPRESS DIALOG:
+   SUPPRESS DIALOG
+
+SYNTAX-CHECK:
+   SYNTAX-CHECK FOR tabla1 ... MESSAGE v2 ... LINE v3  ... WORD v4    
+     PROGRAM f1
+       REPLACING f5
+     INCLUDE f2
+     OFFSET  f3
+     TRACE-TABLE t1
+     DIRECTORY ENTRY f4
+     FRAME ENTRY f6
+     MESSAGE-ID f7
+     ID tabid TABLE tabla
+
+   SYNTAX-CHECK FOR DYNPRO  ... MESSAGE m5 ... LINE l6               
+     OFFSET v1
+     TRACE-TABLE tabla1
+
+SYNTAX-TRACE:
+   SYNTAX-TRACE ON                                                   
+   SYNTAX-TRACE OFF
+   SYNTAX-TRACE ON OPTION CODING
+   SYNTAX-TRACE ON OPTION EXPAND
+
+TABLES:
+   TABLES etab
+
+TOP-OF-PAGE:
+   TOP-OF-PAGE
+     DURING LINE-SELECTION*
+
+TRANSFER:
+   TRANSFER r1 TO name2
+     LENGTH v_len1
+
+TRANSLATE:
+   TRANSLATE v1 TO UPPER CASE
+   TRANSLATE v1 TO LOWER CASE
+   TRANSLATE v1 USING v2
+   TRANSLATE v1 FROM CODE PAGE g1 ... TO CODE PAGE g2
+   TRANSLATE v1 FROM NUMBER FORMAT n1
+
+TYPE-POOL:
+   TYPE-POOL tname1
+   TYPE-POOLS tname1
+
+TYPES:
+   TYPES tname1   or  TYPES tname1(len2)
+     TYPE cnipfdtx
+     LIKE tname1
+     TYPE cnipfdtx OCCURS n2
+     LIKE tname1 OCCURS n2
+     TYPE LINE OF tipo_tabla1
+     LIKE LINE OF tabla1
+     DECIMALS n1
+   TYPES: BEGIN OF tipo_rec1
+     END OF tipo_rec1
+   TYPES: END   OF tipo_rec1
+
+ULINE:
+   ULINE
+   ULINE AT /pos(len)
+
+UNPACK:
+   UNPACK v1 TO v2
+
+UPDATE:
+   UPDATE etab1 SET v1_etab v2_etab ...
+     WHERE cond1
+     CLIENT SPECIFIED
+   UPDATE etab1
+   UPDATE (etab1)
+   UPDATE *etab1
+     FROM wa
+     CLIENT SPECIFIED
+   UPDATE etab1 FROM TABLE tabla2
+   UPDATE (etab1) FROM TABLE tabla2
+     CLIENT SPECIFIED
+     WHERE condition
+
+WAIT:
+   WAIT UNTIL logexp1
+     UP TO lit1 SECONDS
+
+WHEN:
+   WHEN f
+   WHEN OTHERS
+
+
+WHILE:
+
+   WHILE logexp
+      stm1
+      stm2
+    ENDWHILE
+
+   WHILE logexp
+     VARY v1 FROM v2 NEXT v3
+
+WINDOW:
+   WINDOW STARTING AT x1 y1
+     ENDING AT x2 y2
+
+WRITE:
+   WRITE: v1 , v2
+   WRITE: /1 v1 , v2
+   WRITE: AT pos1(len2) v3        
+   WRITE: v1 options ...
+     NO-SIGN
+     NO-ZERO
+     DD/MM/YY
+     DD/MM/YYYY
+     MM/DD/YY
+     MM/DD/YYYY
+     DDMMYY
+     MMDDYY
+     YYMMDD
+     CURRENCY v1
+     DECIMALS n1
+     EXPONENT ex
+     LEFT-JUSTIFIED
+     NO-GAP
+     CENTERED
+     RIGHT-JUSTIFIED
+     ROUND r1
+     UNDER v1
+     UNIT u1
+     USING EDIT MASK maske
+     USING NO EDIT MASK
+   WRITE v1 AS SYMOBL
+   WRITE v1 AS CHECKBOX
+   WRITE v1 AS ICON
+   WRITE v1 AS LINE
+
+   WRITE v1 TO v2
+     WRITE v1 TO v2 +offset3   "v2+offset3
+     WRITE v1 TO v2 (len3)     "v2(len3)
+     WRITE v1 TO v2 +offset3 (len4) "v2+offset3(len4)
+     WRITE v1 TO v2 optionen   "Listaufbereitung
+
+   WRITE (v1) TO v2
+     WRITE (v1) TO v2 +offset3 "v2+offset3
+     WRITE (v1) TO v2 (len3)   "v2(len3)
+     WRITE (v1) TO v2 +offset3 (len4) "v2+offset3(len4)
+     WRITE (v1) TO v2 optionen "Listaufbereitung
+
+   WRITE v1 TO tabla2
+     WRITE v1 TO tabla2 +offset3 INDEX ix4  "tabla2+offset3
+     WRITE v1 TO tabla2 (len3)   INDEX ix4  "tabla2(len3)
+     WRITE v1 TO tabla2 +offset3 (len4) INDEX ix5 "s.oben
+
+   WRITE (v1) TO tabla2
+     WRITE (v1) TO tabla2 +offset3 INDEX ix4  "tabla2+offset3
+     WRITE (v1) TO tabla2 (len3)   INDEX ix4  "tabla2(len3)
+     WRITE (v1) TO tabla2 +offset3 (len4) I 
